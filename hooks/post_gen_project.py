@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -20,3 +22,9 @@ if __name__ == '__main__':
 
     if 'Not open source' == '{{ cookiecutter.open_source_license }}':
         remove_file('LICENSE')
+
+    if '{{ cookiecutter.create_history_file }}' != 'y':
+        remove_file('HISTORY.rst')
+
+    if '{{ cookiecutter.create_contributing_file }}' != 'y':
+        remove_file('CONTRIBUTING.rst')
